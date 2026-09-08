@@ -1,0 +1,1701 @@
+/* DIREÇÃO VISUAL: Jardim Editorial Calmo — botânico, confiável e delicadamente tátil. */
+:root {
+  --bg: #fbf8f3;
+  --bg-alt: #f0e9dc;
+  --paper: #fffefb;
+  --ink: #2f3a2e;
+  --ink-soft: #5b6b57;
+  --sage: #829476;
+  --sage-deep: #59704f;
+  --sage-pale: #dce4d6;
+  --rose: #e8b4b8;
+  --rose-deep: #c97f89;
+  --gold: #c9a26d;
+  --gold-deep: #a47a43;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "DM Sans", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+  --radius: 22px;
+  --shadow-soft: 0 20px 50px -24px rgba(47, 58, 46, 0.28);
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 92px;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::selection {
+  color: var(--paper);
+  background: var(--sage-deep);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Tipografia editorial e etiquetas pedagógicas. */
+.mf-eyebrow {
+  color: var(--gold-deep);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  margin-bottom: 0.85rem;
+  text-transform: uppercase;
+}
+
+.mf-h2 {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.2vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+  margin-bottom: 1.25rem;
+}
+
+.mf-p {
+  color: var(--ink-soft);
+  font-size: 1.04rem;
+  margin-bottom: 1rem;
+  max-width: 55ch;
+}
+
+/* Navegação leve, com marca sempre visível. */
+.mf-nav {
+  backdrop-filter: blur(14px);
+  background: rgba(251, 248, 243, 0.88);
+  border-bottom: 1px solid rgba(47, 58, 46, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.mf-nav-inner {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  min-height: 74px;
+  padding-bottom: 0.8rem;
+  padding-top: 0.8rem;
+}
+
+.mf-logo {
+  align-items: center;
+  color: var(--ink);
+  display: inline-flex;
+  font-family: var(--font-display);
+  font-size: 1.28rem;
+  font-weight: 600;
+  gap: 0.68rem;
+  letter-spacing: -0.025em;
+  line-height: 1;
+}
+
+.mf-logo-mark {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 42px;
+  height: 42px;
+  justify-content: center;
+  position: relative;
+  width: 42px;
+}
+
+.mf-logo-mark::after {
+  background: var(--ink);
+  border: 2px solid var(--paper);
+  border-radius: 50%;
+  content: "";
+  height: 17px;
+  left: 12.5px;
+  position: absolute;
+  top: 12.5px;
+  width: 17px;
+  z-index: 2;
+}
+
+.mf-logo-mark b {
+  color: var(--paper);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  line-height: 1;
+  position: relative;
+  z-index: 3;
+}
+
+.mf-logo-mark i {
+  background: var(--sage);
+  border: 1px solid rgba(47, 58, 46, 0.22);
+  border-radius: 62% 62% 48% 48%;
+  display: block;
+  height: 18px;
+  left: 12px;
+  position: absolute;
+  top: 1px;
+  transform-origin: 9px 20px;
+  width: 18px;
+}
+
+.mf-logo-mark i:nth-child(1) {
+  background: var(--sage);
+  transform: rotate(0deg);
+}
+
+.mf-logo-mark i:nth-child(2) {
+  background: var(--rose);
+  transform: rotate(72deg);
+}
+
+.mf-logo-mark i:nth-child(3) {
+  background: var(--gold);
+  transform: rotate(144deg);
+}
+
+.mf-logo-mark i:nth-child(4) {
+  background: var(--sage);
+  transform: rotate(216deg);
+}
+
+.mf-logo-mark i:nth-child(5) {
+  background: var(--rose);
+  transform: rotate(288deg);
+}
+
+.mf-logo strong {
+  color: var(--sage-deep);
+  font-weight: 600;
+}
+
+.mf-nav-links {
+  align-items: center;
+  display: flex;
+  font-size: 0.93rem;
+  font-weight: 600;
+  gap: 1.55rem;
+}
+
+.mf-nav-links a:not(.mf-nav-cta) {
+  color: var(--ink-soft);
+  transition: color 160ms var(--ease-out);
+}
+
+.mf-nav-links a:not(.mf-nav-cta):hover {
+  color: var(--ink);
+}
+
+.mf-nav-cta {
+  background: var(--sage-deep);
+  border-radius: 999px;
+  color: var(--paper);
+  padding: 0.58rem 1.15rem;
+  transition: background 160ms var(--ease-out), transform 160ms var(--ease-out);
+}
+
+.mf-nav-cta:hover {
+  background: var(--ink);
+  color: var(--paper);
+  transform: translateY(-1px);
+}
+
+.mf-nav-toggle {
+  background: transparent;
+  border: 0;
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+}
+
+.mf-nav-toggle span {
+  background: var(--ink);
+  border-radius: 4px;
+  display: block;
+  height: 2px;
+  transition: transform 160ms var(--ease-out);
+  width: 25px;
+}
+
+/* Botões firmes, arredondados apenas quando evocam uma semente. */
+.mf-btn {
+  align-items: center;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  display: inline-flex;
+  font-size: 0.96rem;
+  font-weight: 700;
+  gap: 0.45rem;
+  justify-content: center;
+  padding: 0.82rem 1.45rem;
+  transition: background 160ms var(--ease-out), box-shadow 160ms var(--ease-out), color 160ms var(--ease-out), transform 160ms var(--ease-out);
+}
+
+.mf-btn:active {
+  transform: scale(0.97);
+}
+
+.mf-btn-primary {
+  background: var(--gold);
+  color: var(--paper);
+}
+
+.mf-btn-primary:hover {
+  background: var(--gold-deep);
+  box-shadow: var(--shadow-soft);
+  color: var(--paper);
+  transform: translateY(-2px);
+}
+
+.mf-btn-secondary {
+  background: var(--sage);
+  color: var(--paper);
+}
+
+.mf-btn-secondary:hover {
+  background: var(--sage-deep);
+  box-shadow: var(--shadow-soft);
+  color: var(--paper);
+  transform: translateY(-2px);
+}
+
+.mf-btn-ghost {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.mf-btn-ghost:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.mf-btn-whatsapp {
+  background: var(--paper);
+  color: var(--ink);
+  margin-top: 1.35rem;
+}
+
+.mf-btn-whatsapp:not([aria-disabled="true"]):hover {
+  background: var(--rose);
+  box-shadow: 0 16px 32px -18px rgba(0, 0, 0, 0.65);
+  color: var(--ink);
+  transform: translateY(-2px);
+}
+
+.mf-btn-whatsapp[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.72;
+}
+
+/* Hero com ilustração botânica de alto contraste. */
+.mf-hero {
+  background: linear-gradient(155deg, var(--bg) 0%, var(--bg-alt) 100%);
+  min-height: 605px;
+  overflow: hidden;
+  padding: 7.4rem 0 6.6rem;
+  position: relative;
+}
+
+.mf-hero::after {
+  background-image: radial-gradient(rgba(89, 112, 79, 0.16) 0.75px, transparent 0.75px);
+  background-size: 15px 15px;
+  content: "";
+  height: 240px;
+  opacity: 0.42;
+  pointer-events: none;
+  position: absolute;
+  right: 4%;
+  top: 11%;
+  width: 240px;
+}
+
+.mf-hero-art {
+  bottom: -9%;
+  pointer-events: none;
+  position: absolute;
+  right: -2%;
+  top: 0;
+  width: min(57vw, 740px);
+  z-index: 0;
+}
+
+.mf-hero-art img {
+  height: 100%;
+  object-fit: cover;
+  object-position: right center;
+  width: 100%;
+}
+
+.mf-hero-inner {
+  max-width: 670px;
+  position: relative;
+  z-index: 2;
+}
+
+.mf-hero-title {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: clamp(2.55rem, 5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 1.04;
+  margin-bottom: 1.5rem;
+}
+
+.mf-hero-sub {
+  color: var(--ink-soft);
+  font-size: 1.15rem;
+  margin-bottom: 2.2rem;
+  max-width: 54ch;
+}
+
+.mf-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* Estrutura das seções. */
+.mf-section {
+  padding: 6.5rem 0;
+  position: relative;
+}
+
+.mf-problema,
+.mf-fichas,
+.mf-quem-somos {
+  background: var(--bg);
+}
+
+.mf-problema::after,
+.mf-fichas::after,
+.mf-quem-somos::after {
+  background: radial-gradient(circle, rgba(201, 162, 109, 0.6) 0 1px, transparent 1.2px);
+  background-size: 12px 12px;
+  content: "";
+  height: 132px;
+  opacity: 0.5;
+  pointer-events: none;
+  position: absolute;
+  right: 5%;
+  top: 12%;
+  width: 132px;
+}
+
+.mf-fonica,
+.mf-aplicar {
+  background: var(--bg-alt);
+}
+
+.mf-stat-card {
+  background: var(--paper);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  padding: 3.1rem 2rem;
+  position: relative;
+  text-align: center;
+}
+
+.mf-stat-card::after {
+  color: var(--gold-deep);
+  content: "DADO EM OBSERVAÇÃO";
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  left: 18px;
+  letter-spacing: 0.12em;
+  position: absolute;
+  top: 17px;
+}
+
+.mf-stat-card::before {
+  background: var(--rose);
+  content: "";
+  height: 5px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.mf-stat-number {
+  color: var(--sage-deep);
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(3.6rem, 6vw, 5rem);
+  font-weight: 700;
+  letter-spacing: -0.06em;
+  line-height: 1;
+}
+
+.mf-stat-label {
+  display: block;
+  margin: 0.8rem auto 0;
+  max-width: 24ch;
+}
+
+.mf-stat-source {
+  color: var(--gold-deep);
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.67rem;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+  margin: 1rem auto 0;
+  max-width: 33ch;
+}
+
+.mf-phonics-demo {
+  align-items: center;
+  background: var(--paper);
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  padding: 3.3rem 1.5rem;
+  position: relative;
+}
+
+.mf-phonics-demo::after {
+  border: 1px solid var(--sage-pale);
+  bottom: 12px;
+  content: "";
+  left: 12px;
+  pointer-events: none;
+  position: absolute;
+  right: 12px;
+  top: 12px;
+}
+
+.mf-phonics-demo::before {
+  color: var(--gold-deep);
+  content: "EXEMPLO PRÁTICO";
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  left: 24px;
+  letter-spacing: 0.12em;
+  position: absolute;
+  top: 22px;
+  z-index: 2;
+}
+
+.mf-chip {
+  background: var(--bg-alt);
+  border: 2px solid var(--sage);
+  color: var(--sage-deep);
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  font-weight: 700;
+  min-width: 68px;
+  padding: 0.45rem 0.95rem;
+  text-align: center;
+  z-index: 1;
+}
+
+.mf-plus {
+  color: var(--gold-deep);
+  font-size: 1.4rem;
+  font-weight: 700;
+  z-index: 1;
+}
+
+.mf-arrow-down {
+  color: var(--gold-deep);
+  font-size: 1.4rem;
+  text-align: center;
+  width: 100%;
+  z-index: 1;
+}
+
+.mf-word {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-align: center;
+  width: 100%;
+  z-index: 1;
+}
+
+/* A flor é o conteúdo: uma explicação por vez, sem repetição de cards. */
+.mf-metodo {
+  background: #f7f2e9;
+  overflow: hidden;
+}
+
+.mf-method-heading {
+  align-items: end;
+  display: flex;
+  gap: 3rem;
+  justify-content: space-between;
+}
+
+.mf-method-heading .mf-p {
+  margin-bottom: 0.2rem;
+}
+
+.mf-flower-experience {
+  align-items: center;
+  display: grid;
+  gap: clamp(1.8rem, 4vw, 4.5rem);
+  grid-template-columns: minmax(0, 1.08fr) minmax(270px, 0.72fr);
+  margin: 3rem auto 0;
+  max-width: 1020px;
+}
+
+.mf-flower-stage {
+  margin: 0 auto;
+  max-width: 590px;
+  position: relative;
+  width: 100%;
+}
+
+.mf-flower-stage::before {
+  background-color: var(--sage-pale);
+  background-image: radial-gradient(rgba(255, 254, 251, 0.85) 0.7px, transparent 0.8px);
+  background-size: 7px 7px;
+  border-radius: 50%;
+  content: "";
+  height: 61%;
+  left: 19.5%;
+  position: absolute;
+  top: 19.5%;
+  width: 61%;
+}
+
+.mf-flower-stage::after {
+  border: 1px dashed rgba(164, 122, 67, 0.5);
+  border-radius: 50%;
+  content: "";
+  height: 74%;
+  left: 13%;
+  pointer-events: none;
+  position: absolute;
+  top: 13%;
+  width: 74%;
+}
+
+.mf-specimen-caption {
+  color: var(--gold-deep);
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  left: 10%;
+  letter-spacing: 0.12em;
+  position: absolute;
+  text-transform: uppercase;
+  top: 8%;
+  z-index: 3;
+}
+
+.mf-flower-svg {
+  overflow: visible;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+.mf-petal-wrap {
+  cursor: pointer;
+  outline: none;
+}
+
+.mf-petal {
+  filter: url("#mf-paper-texture");
+  opacity: 0.58;
+  stroke: rgba(47, 58, 46, 0.24);
+  stroke-width: 2px;
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: fill 220ms var(--ease-out), opacity 220ms var(--ease-out), stroke 220ms var(--ease-out), transform 220ms var(--ease-out);
+}
+
+.mf-petal-wrap:nth-child(1) .mf-petal,
+.mf-petal-wrap:nth-child(4) .mf-petal {
+  fill: var(--sage);
+}
+
+.mf-petal-wrap:nth-child(2) .mf-petal,
+.mf-petal-wrap:nth-child(5) .mf-petal {
+  fill: var(--rose);
+}
+
+.mf-petal-wrap:nth-child(3) .mf-petal {
+  fill: var(--gold);
+}
+
+.mf-petal-wrap:hover .mf-petal,
+.mf-petal-wrap:focus .mf-petal,
+.mf-petal-wrap.active .mf-petal {
+  filter: url("#mf-paper-texture") drop-shadow(0 6px 7px rgba(47, 58, 46, 0.17));
+  opacity: 0.96;
+  stroke: rgba(47, 58, 46, 0.5);
+  transform: scale(1.09);
+}
+
+.mf-petal-wrap:focus-visible .mf-petal {
+  stroke: var(--ink);
+  stroke-width: 5px;
+}
+
+.mf-flower-core {
+  fill: var(--ink);
+  opacity: 0.96;
+}
+
+.mf-petal-letter {
+  fill: var(--ink);
+  font-family: var(--font-display);
+  font-size: 42px;
+  font-weight: 700;
+  pointer-events: none;
+  text-anchor: middle;
+}
+
+.mf-flower-core-letter {
+  fill: var(--paper);
+  font-family: var(--font-display);
+  font-size: 54px;
+  font-weight: 700;
+  pointer-events: none;
+  text-anchor: middle;
+}
+
+.mf-method-detail {
+  background-image: linear-gradient(to bottom, transparent 31px, rgba(130, 148, 118, 0.08) 32px);
+  background-size: 100% 33px;
+  border-left: 2px solid var(--gold);
+  padding: 0.8rem 0 0.8rem 1.4rem;
+  position: relative;
+}
+
+.mf-method-detail::before {
+  background: var(--gold);
+  border-radius: 50%;
+  content: "";
+  height: 9px;
+  left: -5.5px;
+  position: absolute;
+  top: 0;
+  width: 9px;
+}
+
+.mf-detail-index {
+  color: var(--sage-deep);
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.09em;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+
+.mf-method-detail h3 {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin: 0 0 0.85rem;
+}
+
+.mf-method-detail p {
+  color: var(--ink-soft);
+  font-size: 1.06rem;
+  margin: 0;
+  max-width: 32ch;
+  min-height: 7.4rem;
+  transition: opacity 180ms var(--ease-out), transform 180ms var(--ease-out);
+}
+
+.mf-method-detail.is-changing p,
+.mf-method-detail.is-changing h3,
+.mf-method-detail.is-changing .mf-detail-index {
+  opacity: 0.3;
+  transform: translateY(7px);
+}
+
+.mf-detail-hint {
+  color: var(--gold-deep);
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.01em;
+  margin-top: 1.35rem;
+}
+
+/* Materiais e escolhas de aplicação tratados como fichas de aprendizagem. */
+.mf-fichas-specimen {
+  align-items: center;
+  background: var(--paper);
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  gap: clamp(0.5rem, 1.2vw, 1.2rem);
+  justify-content: center;
+  margin: 0;
+  min-height: 315px;
+  overflow: hidden;
+  padding: 3.2rem 1.4rem 1.8rem;
+  position: relative;
+}
+
+.mf-fichas-specimen::before {
+  border: 1px solid rgba(89, 112, 79, 0.3);
+  bottom: 14px;
+  content: "";
+  left: 14px;
+  pointer-events: none;
+  position: absolute;
+  right: 14px;
+  top: 14px;
+}
+
+.mf-specimen-tag {
+  color: var(--gold-deep);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  left: 27px;
+  letter-spacing: 0.11em;
+  position: absolute;
+  text-transform: uppercase;
+  top: 25px;
+}
+
+.mf-ficha {
+  align-items: center;
+  background: var(--bg);
+  border: 2px solid var(--sage);
+  box-shadow: 7px 8px 0 rgba(89, 112, 79, 0.12);
+  display: flex;
+  flex-direction: column;
+  height: 152px;
+  justify-content: center;
+  position: relative;
+  width: 105px;
+  z-index: 1;
+}
+
+.mf-ficha-l {
+  transform: translateY(-13px) rotate(-5deg);
+}
+
+.mf-ficha-r {
+  transform: translateY(4px) rotate(5deg);
+}
+
+.mf-ficha span {
+  color: var(--sage-deep);
+  font-family: var(--font-display);
+  font-size: 3.3rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.mf-ficha small {
+  color: var(--gold-deep);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  margin-top: 0.55rem;
+}
+
+.mf-ficha-l {
+  border-color: var(--rose-deep);
+}
+
+.mf-ficha-l span {
+  color: var(--rose-deep);
+}
+
+.mf-ficha-r {
+  border-color: var(--gold-deep);
+}
+
+.mf-ficha-r span {
+  color: var(--gold-deep);
+}
+
+.mf-specimen-stem {
+  border-left: 2px solid var(--sage);
+  bottom: -34px;
+  height: 118px;
+  position: absolute;
+  right: 13%;
+  transform: rotate(-28deg);
+  width: 30px;
+}
+
+.mf-specimen-stem::before,
+.mf-specimen-stem::after {
+  background: var(--sage);
+  border-radius: 100% 0 100% 0;
+  content: "";
+  height: 31px;
+  position: absolute;
+  width: 16px;
+}
+
+.mf-specimen-stem::before {
+  left: -15px;
+  top: 27px;
+  transform: rotate(18deg);
+}
+
+.mf-specimen-stem::after {
+  right: -16px;
+  top: 49px;
+  transform: rotate(167deg);
+}
+
+.mf-path-card {
+  background: var(--paper);
+  border: 1px solid rgba(89, 112, 79, 0.18);
+  box-shadow: var(--shadow-soft);
+  height: 100%;
+  min-height: 318px;
+  padding: 3.1rem 2.4rem 2.4rem;
+  position: relative;
+  transition: box-shadow 220ms var(--ease-out), transform 220ms var(--ease-out);
+}
+
+.mf-path-card::after {
+  color: var(--gold-deep);
+  content: "FICHA DE APLICAÇÃO";
+  font-family: var(--font-mono);
+  font-size: 0.57rem;
+  letter-spacing: 0.11em;
+  position: absolute;
+  right: 22px;
+  top: 20px;
+}
+
+.mf-path-card:hover {
+  box-shadow: 0 26px 58px -26px rgba(47, 58, 46, 0.34);
+  transform: translateY(-5px);
+}
+
+.mf-path-school {
+  border-top: 5px solid var(--sage);
+}
+
+.mf-path-family {
+  border-top: 5px solid var(--rose);
+}
+
+.mf-path-number {
+  color: var(--gold-deep);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.14em;
+}
+
+.mf-path-title {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  margin: 0.65rem 0 0.8rem;
+}
+
+.mf-path-card .mf-btn {
+  margin-top: 1rem;
+}
+
+/* Pessoas e vínculos. */
+.mf-person-card {
+  background: var(--paper);
+  border-top: 4px solid var(--sage-pale);
+  box-shadow: var(--shadow-soft);
+  height: 100%;
+  padding: 2.5rem 2.2rem 2.2rem;
+  position: relative;
+}
+
+.mf-person-card::after {
+  color: var(--gold-deep);
+  content: "CULTIVADORAS";
+  font-family: var(--font-mono);
+  font-size: 0.57rem;
+  letter-spacing: 0.11em;
+  position: absolute;
+  right: 22px;
+  top: 19px;
+}
+
+.mf-person-mark {
+  align-items: center;
+  border-radius: 50%;
+  color: var(--paper);
+  display: flex;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 600;
+  height: 74px;
+  justify-content: center;
+  margin-bottom: 1.3rem;
+  position: relative;
+  width: 74px;
+}
+
+.mf-person-mark::after {
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  content: "";
+  inset: 6px;
+  position: absolute;
+}
+
+.mf-person-gabi {
+  background: var(--sage);
+}
+
+.mf-person-camila {
+  background: var(--rose-deep);
+}
+
+.mf-person-name {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 600;
+  margin-bottom: 0.45rem;
+}
+
+.mf-social {
+  background: var(--bg-alt);
+  padding-bottom: 4.5rem;
+  padding-top: 4.5rem;
+}
+
+.mf-social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.mf-social-link {
+  border-bottom: 2px solid var(--sage);
+  color: var(--sage-deep);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.4rem 0.15rem;
+  transition: color 160ms var(--ease-out), transform 160ms var(--ease-out);
+}
+
+.mf-social-link:hover {
+  color: var(--ink);
+  transform: translateY(-2px);
+}
+
+/* Encerramento e lista de espera por WhatsApp. */
+.mf-jardim {
+  background: var(--ink);
+  color: var(--bg);
+  overflow: hidden;
+  position: relative;
+}
+
+.mf-jardim::before,
+.mf-jardim::after {
+  border: 1px solid rgba(232, 180, 184, 0.32);
+  border-radius: 50%;
+  content: "";
+  height: 280px;
+  position: absolute;
+  width: 280px;
+}
+
+.mf-jardim::before {
+  left: -120px;
+  top: -130px;
+}
+
+.mf-jardim::after {
+  bottom: -150px;
+  right: -90px;
+}
+
+.mf-jardim .container {
+  position: relative;
+  z-index: 1;
+}
+
+.mf-jardim .mf-eyebrow {
+  color: var(--rose);
+}
+
+.mf-jardim .mf-h2 {
+  color: var(--paper);
+}
+
+.mf-jardim .mf-p {
+  color: rgba(251, 248, 243, 0.76);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mf-waitlist-note {
+  color: rgba(251, 248, 243, 0.62);
+  font-size: 0.84rem;
+  margin: 1rem 0 0;
+}
+
+.mf-footer {
+  background: var(--bg-alt);
+  padding: 2rem 0;
+}
+
+.mf-footer-inner {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.mf-logo-footer .mf-logo-mark {
+  flex: 0 0 42px;
+  height: 42px;
+  transform: none;
+  width: 42px;
+}
+
+.mf-logo-footer .mf-logo-mark i {
+  height: 18px;
+  left: 12px;
+  top: 1px;
+  width: 18px;
+}
+
+.mf-logo-footer .mf-logo-mark::after {
+  height: 17px;
+  left: 12.5px;
+  top: 12.5px;
+  width: 17px;
+}
+
+.mf-footer-copy {
+  color: var(--ink-soft);
+  font-size: 0.86rem;
+  margin: 0;
+}
+
+/* Página de assessoria — percurso com início, formação e continuidade. */
+.mf-assessoria-hero {
+  background: linear-gradient(145deg, #f3eee3 0%, #e2e8dd 100%);
+  min-height: 560px;
+  overflow: hidden;
+  padding: 6.5rem 0;
+  position: relative;
+}
+
+.mf-assessoria-hero-garden {
+  background: radial-gradient(circle at 50% 50%, rgba(232, 180, 184, 0.78) 0 13%, transparent 14%), radial-gradient(circle at 21% 48%, rgba(201, 162, 109, 0.78) 0 16%, transparent 17%), radial-gradient(circle at 79% 48%, rgba(130, 148, 118, 0.8) 0 16%, transparent 17%);
+  border: 1px solid rgba(89, 112, 79, 0.22);
+  border-radius: 50%;
+  bottom: -110px;
+  height: min(47vw, 570px);
+  position: absolute;
+  right: 5%;
+  width: min(47vw, 570px);
+}
+
+.mf-assessoria-hero-garden::before,
+.mf-assessoria-hero-garden::after {
+  border: 1px dashed rgba(164, 122, 67, 0.6);
+  border-radius: 50%;
+  content: "";
+  inset: 13%;
+  position: absolute;
+}
+
+.mf-assessoria-hero-garden::after {
+  inset: 28%;
+}
+
+.mf-assessoria-hero-garden i {
+  background: var(--rose);
+  border: 1px solid rgba(47, 58, 46, 0.2);
+  border-radius: 65% 65% 65% 16%;
+  height: 115px;
+  left: calc(50% - 57px);
+  position: absolute;
+  top: 6%;
+  transform-origin: 57px 254px;
+  width: 115px;
+}
+
+.mf-assessoria-hero-garden i:nth-child(2) {
+  background: var(--sage);
+  transform: rotate(120deg);
+}
+
+.mf-assessoria-hero-garden i:nth-child(3) {
+  background: var(--gold);
+  transform: rotate(240deg);
+}
+
+.mf-assessoria-hero-garden span {
+  bottom: 19%;
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  left: 10%;
+  letter-spacing: 0.09em;
+  position: absolute;
+  text-transform: uppercase;
+  transform: rotate(-18deg);
+}
+
+.mf-assessoria-hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.mf-assessoria-intro {
+  background-color: var(--paper);
+  background-image: linear-gradient(90deg, transparent 0, transparent 92%, rgba(201, 162, 109, 0.16) 92%, rgba(201, 162, 109, 0.16) 92.2%, transparent 92.2%);
+  background-size: 65px 100%;
+  padding: 5rem 0;
+}
+
+.mf-assessoria-intro .mf-h2 {
+  max-width: 13ch;
+}
+
+.mf-assessoria-steps {
+  background: var(--bg-alt);
+}
+
+.mf-cultivation-line {
+  border-top: 1px dashed rgba(164, 122, 67, 0.65);
+  height: 46px;
+  margin: 1.7rem 3% -1.3rem;
+  position: relative;
+}
+
+.mf-cultivation-line span {
+  background: var(--sage);
+  border: 3px solid var(--bg-alt);
+  border-radius: 50%;
+  height: 14px;
+  position: absolute;
+  top: -7px;
+  width: 14px;
+}
+
+.mf-cultivation-line span:nth-child(1) {
+  left: 0;
+}
+
+.mf-cultivation-line span:nth-child(2) {
+  left: calc(50% - 7px);
+  background: var(--rose-deep);
+}
+
+.mf-cultivation-line span:nth-child(3) {
+  right: 0;
+  background: var(--gold-deep);
+}
+
+.mf-step {
+  border-left: 1px solid rgba(89, 112, 79, 0.32);
+  height: 100%;
+  padding: 1.7rem 1.3rem 1.3rem;
+  position: relative;
+}
+
+.mf-step::before {
+  background: var(--sage);
+  border-radius: 50% 50% 50% 9%;
+  content: "";
+  height: 17px;
+  left: -9px;
+  position: absolute;
+  top: 0;
+  transform: rotate(-38deg);
+  width: 17px;
+}
+
+.col-md-4:nth-child(2) .mf-step::before {
+  background: var(--rose-deep);
+}
+
+.col-md-4:nth-child(3) .mf-step::before {
+  background: var(--gold-deep);
+}
+
+.mf-step-index {
+  color: var(--gold-deep);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+}
+
+.mf-step h3 {
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  margin: 0.65rem 0;
+}
+
+.mf-step p {
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.mf-assessoria-camila {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.mf-assessoria-camila .mf-h2 {
+  color: var(--paper);
+}
+
+.mf-assessoria-camila .mf-p {
+  color: rgba(251, 248, 243, 0.76);
+}
+
+.mf-assessoria-camila .mf-eyebrow {
+  color: var(--rose);
+}
+
+.mf-camila-signature {
+  border-left: 2px solid var(--gold);
+  padding: 0.3rem 0 0.3rem 1.1rem;
+}
+
+.mf-camila-signature strong {
+  color: var(--rose);
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+.mf-assessoria-cta {
+  background: var(--bg);
+  text-align: center;
+}
+
+.mf-assessoria-cta .mf-p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Acessibilidade e dispositivos menores. */
+:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 4px;
+}
+
+@media (max-width: 991px) {
+  .mf-nav-toggle {
+    display: flex;
+  }
+
+  .mf-nav-links {
+    background: var(--bg);
+    border-bottom: 1px solid rgba(47, 58, 46, 0.08);
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    left: 0;
+    padding: 1.4rem max(1rem, calc((100vw - 960px) / 2));
+    position: absolute;
+    right: 0;
+    top: 100%;
+  }
+
+  .mf-nav-links.open {
+    display: flex;
+  }
+
+  .mf-nav-cta {
+    align-self: flex-start;
+  }
+
+  .mf-hero {
+    min-height: 650px;
+    padding-top: 6rem;
+  }
+
+  .mf-hero-art {
+    opacity: 0.42;
+    right: -15%;
+    top: 9%;
+    width: 620px;
+  }
+
+  .mf-method-heading {
+    align-items: start;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .mf-flower-experience {
+    grid-template-columns: 1fr;
+    max-width: 640px;
+  }
+
+  .mf-method-detail {
+    margin: 0 auto;
+    max-width: 510px;
+    width: 100%;
+  }
+
+  .mf-assessoria-hero-garden {
+    opacity: 0.36;
+    right: -11%;
+    width: 620px;
+    height: 620px;
+  }
+}
+
+@media (max-width: 575px) {
+  body {
+    font-size: 16px;
+  }
+
+  .mf-nav-inner {
+    min-height: 68px;
+  }
+
+  .mf-logo {
+    font-size: 1.15rem;
+  }
+
+  .mf-logo-mark {
+    flex-basis: 33px;
+    height: 33px;
+    transform: scale(0.88);
+    transform-origin: left center;
+    width: 33px;
+  }
+
+  .mf-hero {
+    min-height: 620px;
+    padding: 5.5rem 0 4rem;
+  }
+
+  .mf-hero-art {
+    opacity: 0.26;
+    right: -55%;
+    top: 12%;
+    width: 570px;
+  }
+
+  .mf-hero-title {
+    font-size: clamp(2.45rem, 12vw, 3.45rem);
+  }
+
+  .mf-hero-sub {
+    font-size: 1.05rem;
+  }
+
+  .mf-btn {
+    padding: 0.78rem 1.2rem;
+    width: 100%;
+  }
+
+  .mf-section {
+    padding: 4.5rem 0;
+  }
+
+  .mf-method-heading .mf-h2 {
+    max-width: 10ch;
+  }
+
+  .mf-flower-experience {
+    margin-top: 2rem;
+  }
+
+  .mf-flower-stage {
+    transform: scale(1.05);
+  }
+
+  .mf-method-detail {
+    margin-top: 0.8rem;
+  }
+
+  .mf-method-detail p {
+    min-height: auto;
+  }
+
+  .mf-detail-hint {
+    line-height: 1.45;
+  }
+
+  .mf-path-card {
+    min-height: auto;
+    padding: 2rem 1.5rem;
+  }
+
+  .mf-assessoria-hero {
+    min-height: 560px;
+    padding: 5rem 0;
+  }
+
+  .mf-assessoria-hero-garden {
+    opacity: 0.24;
+    right: -52%;
+    width: 520px;
+    height: 520px;
+  }
+
+  .mf-cultivation-line {
+    margin-bottom: 0;
+    margin-top: 1rem;
+  }
+
+  .mf-footer-inner {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+/* Imagens editoriais adicionadas a partir do PDF da cliente. */
+.mf-person-photo {
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+  height: auto;
+  margin: 0 0 1.4rem;
+  object-fit: cover;
+  width: 100%;
+}
+
+.mf-person-education {
+  color: var(--ink-soft);
+  font-size: .92rem;
+}
+
+.mf-ficha-image {
+  aspect-ratio: 1 / 1;
+  border: 2px solid var(--sage);
+  box-shadow: 7px 8px 0 rgba(89, 112, 79, .12);
+  height: 145px;
+  object-fit: cover;
+  position: relative;
+  transform: rotate(-4deg);
+  width: 145px;
+  z-index: 1;
+}
+
+.mf-ficha-image-p {
+  border-color: var(--rose-deep);
+  transform: translateY(-13px) rotate(3deg);
+}
+
+.mf-ficha-image-mouth {
+  border-color: var(--gold-deep);
+  transform: translateY(5px) rotate(6deg);
+}
+
+@media (max-width: 767.98px) {
+  .mf-ficha-image {
+    height: 105px;
+    width: 105px;
+  }
+}
+
+/* Imagens editoriais adicionadas a partir do PDF da cliente. */
+.mf-person-photo {
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+  height: auto;
+  margin: 0 0 1.4rem;
+  object-fit: cover;
+  width: 100%;
+}
+
+.mf-person-education {
+  color: var(--ink-soft);
+  font-size: .92rem;
+}
+
+.mf-ficha-image {
+  aspect-ratio: 1 / 1;
+  border: 2px solid var(--sage);
+  box-shadow: 7px 8px 0 rgba(89, 112, 79, .12);
+  height: 145px;
+  object-fit: cover;
+  position: relative;
+  transform: rotate(-4deg);
+  width: 145px;
+  z-index: 1;
+}
+
+.mf-ficha-image-p {
+  border-color: var(--rose-deep);
+  transform: translateY(-13px) rotate(3deg);
+}
+
+.mf-ficha-image-mouth {
+  border-color: var(--gold-deep);
+  transform: translateY(5px) rotate(6deg);
+}
+
+@media (max-width: 767.98px) {
+  .mf-ficha-image {
+    height: 105px;
+    width: 105px;
+  }
+}
+
+/* Imagens editoriais adicionadas a partir do PDF da cliente. */
+.mf-person-photo {
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+  height: auto;
+  margin: 0 0 1.4rem;
+  object-fit: cover;
+  width: 100%;
+}
+
+.mf-person-education {
+  color: var(--ink-soft);
+  font-size: .92rem;
+}
+
+.mf-ficha-image {
+  aspect-ratio: 1 / 1;
+  border: 2px solid var(--sage);
+  box-shadow: 7px 8px 0 rgba(89, 112, 79, .12);
+  height: 145px;
+  object-fit: cover;
+  position: relative;
+  transform: rotate(-4deg);
+  width: 145px;
+  z-index: 1;
+}
+
+.mf-ficha-image-p {
+  border-color: var(--rose-deep);
+  transform: translateY(-13px) rotate(3deg);
+}
+
+.mf-ficha-image-mouth {
+  border-color: var(--gold-deep);
+  transform: translateY(5px) rotate(6deg);
+}
+
+@media (max-width: 767.98px) {
+  .mf-ficha-image {
+    height: 105px;
+    width: 105px;
+  }
+}
+
+/* Correção de alinhamento da primeira seção. */
+.mf-problema .container {
+  max-width: 1180px;
+}
+
+.mf-problema .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.mf-problema .col-lg-6:first-child {
+  padding-left: 0;
+}
+
+/* Links sociais com ícones Font Awesome. */
+.mf-social-links {
+  align-items: center;
+}
+
+.mf-social-link {
+  align-items: center;
+  display: inline-flex;
+  gap: .55rem;
+}
+
+.mf-social-link i {
+  font-size: 1.25rem;
+}
+
+/* HERO: o texto fica alinhado à esquerda do container, sem deslocamento extra. */
+.mf-hero>.container {
+  max-width: 1280px;
+}
+
+.mf-hero .mf-hero-inner {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/* HERO: ajuste final para o texto não ficar preso ao recuo central do Bootstrap. */
+@media (min-width: 992px) {
+  .mf-hero>.container {
+     padding-left: clamp(3rem, 9vw, 9rem);
+  }
+
+  .mf-hero .mf-hero-inner {
+    margin-left: 0;
+    max-width: min(670px, 52vw);
+  }
+}
+
+/* Instrução Fônica: composição editorial centralizada quando não há card visual. */
+.mf-fonica > .container > .row > .col-lg-12 {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 900px;
+  padding-left: clamp(1rem, 2vw, 2rem);
+  padding-right: clamp(1rem, 2vw, 2rem);
+}
+
+.mf-fonica > .container > .row > .col-lg-12 .mf-p {
+  font-size: 1.08rem;
+  line-height: 1.78;
+  max-width: 68ch;
+}
+
+
+
+/* Centralizar o título da seção Instrução Fônica */
+.mf-fonica > .container > .row > .col-lg-12 .mf-eyebrow,
+.mf-fonica > .container > .row > .col-lg-12 .mf-h2 {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
