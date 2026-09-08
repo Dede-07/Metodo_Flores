@@ -1668,7 +1668,7 @@ button {
 /* HERO: ajuste final para o texto não ficar preso ao recuo central do Bootstrap. */
 @media (min-width: 992px) {
   .mf-hero>.container {
-     padding-left: clamp(3rem, 9vw, 9rem);
+    padding-left: clamp(3rem, 9vw, 9rem);
   }
 
   .mf-hero .mf-hero-inner {
@@ -1678,7 +1678,7 @@ button {
 }
 
 /* Instrução Fônica: composição editorial centralizada quando não há card visual. */
-.mf-fonica > .container > .row > .col-lg-12 {
+.mf-fonica>.container>.row>.col-lg-12 {
   margin-left: auto;
   margin-right: auto;
   max-width: 900px;
@@ -1686,7 +1686,7 @@ button {
   padding-right: clamp(1rem, 2vw, 2rem);
 }
 
-.mf-fonica > .container > .row > .col-lg-12 .mf-p {
+.mf-fonica>.container>.row>.col-lg-12 .mf-p {
   font-size: 1.08rem;
   line-height: 1.78;
   max-width: 68ch;
@@ -1695,8 +1695,8 @@ button {
 
 
 /* Centralizar o título da seção Instrução Fônica */
-.mf-fonica > .container > .row > .col-lg-12 .mf-eyebrow,
-.mf-fonica > .container > .row > .col-lg-12 .mf-h2 {
+.mf-fonica>.container>.row>.col-lg-12 .mf-eyebrow,
+.mf-fonica>.container>.row>.col-lg-12 .mf-h2 {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
